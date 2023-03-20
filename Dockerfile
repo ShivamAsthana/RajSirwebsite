@@ -8,5 +8,6 @@ WORKDIR /var/www/html
 RUN unzip apollo.zip
 RUN cp -rvf markups-apollo/* .
 RUN rm -rf _MACOSX markups-apollo apollo.zip
-CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
 EXPOSE 80
+CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
+
