@@ -1,14 +1,8 @@
 FROM centos:latest
 MAINTAINER shivamasthana24@gmail.com
-RUN yum install -y httpd \
-zip \
-unzip
-RUN wget https://www.free-css.com/assets/files/free-css-templates/download/page289/apollo.zip 
-COPY ./apollo.zip /var/www/html
+RUN yum install -y httpd 
 WORKDIR /var/www/html
-RUN unzip apollo.zip
-RUN cp -rvf markups-apollo/* .
-RUN rm -rf _MACOSX markups-apollo apollo.zip
+COPY . .
 EXPOSE 80
 CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
 
